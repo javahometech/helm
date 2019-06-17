@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for a Kubernetes app
+name: nodeapp
+version: 1.0
