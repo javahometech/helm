@@ -4,7 +4,7 @@
 replicaCount: 2
 image:
   repository: kammana/nodeapp
-  tag: v1
+  tag: 1
   pullSecret: regsecret
   pullPolicy: IfNotPresent
   # for local development against Minikube registry
