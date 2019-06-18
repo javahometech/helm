@@ -1,4 +1,12 @@
 # nodeapp-helm
+### To deploy triller service account RBAC
+```
+kucbectl create -f https://raw.githubusercontent.com/javahometech/nodeapp-helm/master/rbac/rbac-config.yaml
+```
+### To intial helm local repository
+```
+helm init
+```
 ### To create helm chart
 ```
 helm create nodeapp-helm
