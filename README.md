@@ -1,6 +1,6 @@
 # nodeapp-helm
 ## NOTE
-If you get any error
+If you get error like this
 ```
 configmaps is forbidden: User "system:serviceaccount:kube-system:default" cannot list resource "configmaps" in API group "" in the namespace "kube-system"
 ```
