@@ -1,4 +1,5 @@
-# helm package manager for packaging and deploying kubernetes applications
+# Helm Kubernetes
+Helm is for packaging and deploying kubernetes applications
 ## NOTE - If you get error like this
 
 ```
