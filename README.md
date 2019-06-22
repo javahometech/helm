@@ -25,7 +25,13 @@ configmaps is forbidden: User "system:serviceaccount:kube-system:default" cannot
 ```
 ###  deploy triller service account RBAC to avoid above error
 ```
-kucbectl create -f https://raw.githubusercontent.com/javahometech/nodeapp-helm/master/rbac/rbac-config.yaml
+kubectl --namespace kube-system create serviceaccount tiller
+```
+```
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+```
+```
+kubectl --namespace kube-system patch deploy tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}' 
 ```
 
 ### To list out helm deployments
