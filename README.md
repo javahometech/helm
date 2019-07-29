@@ -1,6 +1,14 @@
 # Helm Kubernetes
 Helm is for packaging and deploying kubernetes applications
 
+### Install 
+
+```
+curl -LO https://git.io/get_helm.sh
+chmod 700 get_helm.sh
+./get_helm.sh
+
+```
 
 ### To intial helm local repository
 ```
