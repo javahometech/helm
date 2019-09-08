@@ -26,6 +26,12 @@ helm package nodeapp-helm
 ```
 helm install nodeapp-helm
 ```
+
+### To deploy helm package with custom release name
+If you do not mention name, helm chooses random names for release, if you want to have custom name for a relase, run the following command
+```
+  helm install --name my-release nodeapp-helm
+```
 ## NOTE - If you get error as follows when you run above command 
 
 ```
@@ -33,20 +39,23 @@ configmaps is forbidden: User "system:serviceaccount:kube-system:default" cannot
 ```
 ###  deploy triller service account RBAC to avoid above error
 ```
-kubectl --namespace kube-system create serviceaccount tiller
-```
-```
-kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-```
-```
-kubectl --namespace kube-system patch deploy tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}' 
+  kubectl --namespace kube-system create serviceaccount tiller
+  kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+  kubectl --namespace kube-system patch deploy tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}' 
 ```
 
-### To list out helm deployments
+### To list out helm releases which are in deployed state
 ```
-helm ls
+  helm ls
 ```
-### To delete helm deployments
+
+### To list out helm releases which are deployed and deleted state
 ```
-helm delete helm-deployment-name
+  helm ls --all
+```
+### To delete helm release
+To delete release completely run following two commands
+```
+  helm delete helm-release-name
+  helm del --purge helm-release-name
 ```
