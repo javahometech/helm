@@ -45,7 +45,7 @@ configmaps is forbidden: User "system:serviceaccount:kube-system:default" cannot
 ```
 
 ### Upgrade helm release
-helm upgrade --set-string image.tag=v2 <release-name> <chart-path>
+``` helm upgrade --set-string image.tag=v2 <release-name> <chart-path> ```
 ```
   helm upgrade --set-string image.tag=v2 nodeapp nodeapp
   
