@@ -37,11 +37,18 @@ If you do not mention name, helm chooses random names for release, if you want t
 ```
 configmaps is forbidden: User "system:serviceaccount:kube-system:default" cannot list resource "configmaps" in API group "" in the namespace "kube-system"
 ```
-###  deploy triller service account RBAC to avoid above error
+###  deploy tiller service account RBAC to avoid above error
 ```
   kubectl --namespace kube-system create serviceaccount tiller
   kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
   kubectl --namespace kube-system patch deploy tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}' 
+```
+
+### Upgrade helm release
+helm upgrade --set-string image.tag=v2 <release-name> <chart-path>
+```
+  helm upgrade --set-string image.tag=v2 nodeapp nodeapp
+  
 ```
 
 ### To list out helm releases which are in deployed state
