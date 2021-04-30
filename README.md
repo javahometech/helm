@@ -10,10 +10,6 @@ chmod 700 get_helm.sh
 
 ```
 
-### To intial helm local repository
-```
-helm init
-```
 ### To create helm chart
 ```
 helm create nodeapp-helm
@@ -33,7 +29,6 @@ If you do not mention name, helm chooses random names for release, if you want t
   helm install --name my-release nodeapp-helm
 ```
 ## NOTE - If you get error as follows when you run above command 
-
 ```
 configmaps is forbidden: User "system:serviceaccount:kube-system:default" cannot list resource "configmaps" in API group "" in the namespace "kube-system"
 ```
@@ -64,5 +59,5 @@ configmaps is forbidden: User "system:serviceaccount:kube-system:default" cannot
 To delete release completely run following two commands
 ```
   helm delete helm-release-name
-  helm del --purge helm-release-name
+
 ```
